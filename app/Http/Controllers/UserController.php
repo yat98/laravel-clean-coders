@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function store(StoreUserRequest $request, StoreUserAction $storeUserAction)
     {
-        $storeUserAction->execute($request);
+        $storeUserAction->execute($request->toDTO());
 
         return redirect()->route('users.index');
     }

@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\DataTransferObject\StoreUserDTO;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUserRequest extends FormRequest
+class StoreUserAPIRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +25,7 @@ class StoreUserRequest extends FormRequest
     {
         return [
             'name' => 'string|required|max:50',
-            'email' => 'email|required|unique:users',
+            'email_address' => 'email|required|unique:users',
             'password' => 'string|required|confirmed',
         ];
     }
@@ -40,7 +39,7 @@ class StoreUserRequest extends FormRequest
     {
         return new StoreUserDTO(
             name: $this->name,
-            email: $this->email,
+            email: $this->email_address,
             password: $this->password,
         );
     }

@@ -4,7 +4,8 @@ namespace App\Actions;
 
 use GuzzleHttp\Psr7\Request;
 
-class StoreUserAction{
+class StoreUserAction
+{
     public function execute(Request $request): void
     {
         $user = User::create([
