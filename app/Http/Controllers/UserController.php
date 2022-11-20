@@ -16,11 +16,4 @@ class UserController extends Controller
 
         return redirect()->route('users.index');
     }
-
-    public function unsubscribe(User $user)
-    {
-        $user->unsubscribeFromNewsLetter();
-
-        return redirect()->route('users.index');
-    }
 }
