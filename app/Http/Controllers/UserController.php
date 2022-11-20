@@ -5,19 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Jobs\RegisterUserToNewsLetter;
+use App\Http\Requests\StoreUserRequest;
 
 class UserController extends Controller
 {
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        $this->authorize('create', User::class);
-
-        $request->validate([
-            'name' => 'string|required|max:50',
-            'email' => 'email|required|unique:users',
-            'password' => 'string|required|confirmed',
-        ]);
-
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -33,7 +26,7 @@ class UserController extends Controller
     public function unsubscribe(User $user)
     {
         $user->unsubscribeFromNewsLetter();
-        
+
         return redirect()->route('users.index');
     }
 }
