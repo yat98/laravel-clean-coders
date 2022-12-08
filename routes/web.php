@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Comment;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UnsubscribeUserController;
@@ -21,3 +22,11 @@ Route::get('/', function () {
 
 Route::post('user', [UserController::class, 'store']);
 Route::post('user/unsubscribe-newsletter', UnsubscribeUserController::class);
+
+Route::get('comment', function() {
+    $comments = Comment::with('author')->get();
+
+    foreach($comments as $comment){
+        print_r($comment->author->name);
+    }
+});
