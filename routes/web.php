@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Comment;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UnsubscribeUserController;
@@ -29,5 +30,16 @@ Route::get('comment', function() {
 
     foreach($comments as $comment){
         print_r($comment->author->name);
+    }
+});
+
+Route::get('comment/cache', function() {
+    // $comments = Comment::all();
+    $comments = Cache::remember('comment', 120, function () {
+        return Comment::all();
+    });
+
+    foreach($comments as $comment){
+        print_r($comment->comment.'<br>');
     }
 });
