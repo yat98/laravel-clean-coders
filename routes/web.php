@@ -24,6 +24,7 @@ Route::post('user', [UserController::class, 'store']);
 Route::post('user/unsubscribe-newsletter', UnsubscribeUserController::class);
 
 Route::get('comment', function() {
+    // $comments = Comment::all();
     $comments = Comment::with('author')->get();
 
     foreach($comments as $comment){
