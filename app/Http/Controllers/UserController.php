@@ -10,6 +10,13 @@ use App\Http\Requests\StoreUserRequest;
 
 class UserController extends Controller
 {
+    public function index()
+    {
+        $users = User::select(['id','name','email'])->get();
+
+        return view('users.index', compact('users'));
+    }
+
     public function store(StoreUserRequest $request, StoreUserAction $storeUserAction)
     {
         $storeUserAction->execute($request->toDTO());
