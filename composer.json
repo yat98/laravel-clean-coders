@@ -23,7 +23,9 @@
     },
     "autoload": {
         "files": [
-            "app\\Helpers\\helpers.php"
+            "app\\Helpers\\money.php",
+            "app\\Helpers\\time.php",
+            "app\\Helpers\\settings.php"
         ],
         "psr-4": {
             "App\\": "app/",

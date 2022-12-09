@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel {{ seconds_to_hours(rand(1,3)) }}</title>
+        <title>{{ format_uppercase_name('Laravel') }} {{ seconds_to_hours(rand(1,3)) }}</title>
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -56,6 +56,8 @@
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                                     Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
+                                    <br>
+                                    {{ format_rupiah(10000) }}
                                 </div>
                             </div>
                         </div>
