@@ -3,6 +3,7 @@
 use App\Models\Comment;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RateController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UnsubscribeUserController;
 
