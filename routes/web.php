@@ -44,3 +44,6 @@ Route::get('comment/cache', function() {
         print_r($comment->comment.'<br>');
     }
 });
+
+
+Route::get('rate', RateController::class);
