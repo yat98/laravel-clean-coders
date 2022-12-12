@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RateController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UnsubscribeUserController;
+use App\Http\Controllers\NewsletterSubscriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,5 @@ Route::get('comment/cache', function() {
 
 
 Route::get('rate', RateController::class);
+
+Route::post('newsletter/subscriptions', [NewsletterSubscriptionController::class, 'store']);
